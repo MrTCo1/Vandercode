@@ -175,7 +175,7 @@
 	icon_state = "psydonboots"
 	item_state = "psydonboots"
 
-/obj/item/clothing/shoes/courtphysmale
+/obj/item/clothing/shoes/courtphysician/male
 	name = "sanguine shoes"
 	desc = "Leather shoes, the solemn tap of these bears grim news, or salvation."
 	icon_state = "docshoes"
@@ -184,7 +184,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_courtphys.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/courtphys.dmi'
 
-/obj/item/clothing/shoes/courtphysfemale
+/obj/item/clothing/shoes/courtphysician/female
 	name = "sanguine heels"
 	desc = "Leather heels, the solemn tap of these bears grim news, or salvation."
 	icon_state = "docheels"
