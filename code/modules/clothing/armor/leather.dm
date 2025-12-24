@@ -263,7 +263,7 @@
 	detail_tag = "_detail"
 	boobed = FALSE
 	uses_lord_coloring = LORD_PRIMARY
-	alternate_worn_layer = ARMOR_LAYER
+	alternate_worn_layer = 19
 
 /obj/item/clothing/armor/leather/jacket/courtphysician/female
 	name = "sanguine jacket"
@@ -276,7 +276,7 @@
 	detail_tag = "_detail"
 	boobed = FALSE
 	uses_lord_coloring = LORD_PRIMARY
-	alternate_worn_layer = ARMOR_LAYER
+	alternate_worn_layer = 19
 
 /obj/item/clothing/armor/leather/jacket/leathercoat
 	name = "leather coat"
