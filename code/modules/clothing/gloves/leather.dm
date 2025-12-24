@@ -89,7 +89,7 @@
 	salvage_result = /obj/item/natural/fur
 	item_weight = 4
 
-/obj/item/clothing/gloves/leather/courtphysmale
+/obj/item/clothing/gloves/leather/courtphysician/male
 	name = "sanguine gloves"
 	desc = "Carefully sewn leather gloves, unrestricting to your ability to wield surgical tools, and stylish!"
 	icon_state = "docgloves"
@@ -100,7 +100,7 @@
 	detail_tag = "_detail"
 	uses_lord_coloring = LORD_PRIMARY
 
-/obj/item/clothing/gloves/leather/courtphysfemale
+/obj/item/clothing/gloves/leather/courtphysician/female
 	name = "sanguine sleeves"
 	desc = "Carefully sewn leather gloves with silk sleeves covering them, unrestricting to your ability to wield surgical tools, and stylish!"
 	icon_state = "docsleeves"
