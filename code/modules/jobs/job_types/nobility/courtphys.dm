@@ -65,9 +65,10 @@
 	mask = /obj/item/clothing/face/courtphysician
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/keyring/physician
-	beltr = /obj/item/weapon/mace/cane/courtphysician
+	beltr = /obj/item/weapon/sword/rapier/caneblade/courtphysician
 	armor = /obj/item/clothing/armor/leather/jacket/courtphysician/male
 	ring = /obj/item/clothing/ring/feldsher_ring
+	scabbards = list(/obj/item/weapon/scabbard/cane/courtphysician)
 
 /datum/outfit/courtphys/female
 	name = "Female Court Physician"
@@ -81,7 +82,10 @@
 	mask = /obj/item/clothing/face/courtphysician
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/keyring/physician
-	beltr = /obj/item/weapon/mace/cane/courtphysician
+	beltr = /obj/item/weapon/sword/rapier/caneblade/courtphysician
 	armor = /obj/item/clothing/armor/leather/jacket/courtphysician/female
 	ring = /obj/item/clothing/ring/feldsher_ring
+	scabbards = list(/obj/item/weapon/scabbard/cane/courtphysician)
+
+
 
