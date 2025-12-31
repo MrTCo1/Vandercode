@@ -74,7 +74,7 @@
 	name = "Female Court Physician"
 	shoes = /obj/item/clothing/shoes/courtphysician/female
 	shirt = /obj/item/clothing/shirt/undershirt/courtphysician/female
-	pants = /obj/item/clothing/pants/skirt/courtphysician/female
+	pants = /obj/item/clothing/pants/skirt/courtphysician
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
 	gloves = /obj/item/clothing/gloves/leather/courtphysician/female
