@@ -149,7 +149,7 @@
 	item_state = "butlershorts"
 	detail_color = CLOTHING_SOOT_BLACK
 
-/obj/item/clothing/pants/trou/courtphysician/male
+/obj/item/clothing/pants/trou/courtphysician
 	name = "sanguine trousers"
 	desc = "A pair of formal trousers, clean to the best of the servant's ability, but some bloodstains are impossible to rid them of"
 	icon_state = "docpants"

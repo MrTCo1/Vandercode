@@ -49,7 +49,7 @@
 /obj/item/clothing/pants/skirt/patkilt/colored/red
 	color = CLOTHING_RED_OCHRE
 
-/obj/item/clothing/pants/skirt/courtphysician/female
+/obj/item/clothing/pants/skirt/courtphysician
 	name = "sanguine skirt"
 	desc = "An elegant velvet skirt that does you no good when running to someones aid."
 	icon_state = "docskirt"

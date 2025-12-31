@@ -175,7 +175,7 @@
 	icon_state = "psydonboots"
 	item_state = "psydonboots"
 
-/obj/item/clothing/shoes/courtphysician/male
+/obj/item/clothing/shoes/courtphysician
 	name = "sanguine shoes"
 	desc = "Leather shoes, the solemn tap of these bears grim news, or salvation."
 	icon_state = "docshoes"

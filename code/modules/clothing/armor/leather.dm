@@ -252,7 +252,7 @@
 	body_parts_covered = COVERAGE_SHIRT
 	uses_lord_coloring = LORD_PRIMARY
 
-/obj/item/clothing/armor/leather/jacket/courtphysician/male
+/obj/item/clothing/armor/leather/jacket/courtphysician
 	name = "sanguine coat"
 	desc = "A padded coat made of a leather, perhaps this may keep the bloodstains away."
 	icon_state = "doccoat"

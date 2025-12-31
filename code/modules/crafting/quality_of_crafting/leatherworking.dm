@@ -1036,7 +1036,7 @@
 	requirements = list(
 		/obj/item/natural/hide/cured = 2
 	)
-	output = /obj/item/clothing/gloves/leather/courtphysician/male
+	output = /obj/item/clothing/gloves/leather/courtphysician
 	craftdiff = 3
 	category = "Gloves"
 
@@ -1055,7 +1055,7 @@
 	requirements = list(
 		/obj/item/natural/hide/cured = 3
 	)
-	output = /obj/item/clothing/armor/leather/jacket/courtphysician/male
+	output = /obj/item/clothing/armor/leather/jacket/courtphysician
 	craftdiff = 3
 	category = "Armor"
 
@@ -1064,7 +1064,7 @@
 	requirements = list(
 		/obj/item/natural/hide/cured = 2
 	)
-	output = /obj/item/clothing/shoes/courtphysician/male
+	output = /obj/item/clothing/shoes/courtphysician
 	craftdiff = 3
 	category = "Shoes"
 

@@ -89,7 +89,7 @@
 	salvage_result = /obj/item/natural/fur
 	item_weight = 4
 
-/obj/item/clothing/gloves/leather/courtphysician/male
+/obj/item/clothing/gloves/leather/courtphysician
 	name = "sanguine gloves"
 	desc = "Carefully sewn leather gloves, unrestricting to your ability to wield surgical tools, and stylish!"
 	icon_state = "docgloves"

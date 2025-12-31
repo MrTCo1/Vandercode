@@ -645,7 +645,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/sanguinetrousers
 	name = "sanguine trousers"
-	output = /obj/item/clothing/pants/trou/courtphysician/male
+	output = /obj/item/clothing/pants/trou/courtphysician
 	requirements = list(
 		/obj/item/natural/silk = 3
 	)
@@ -653,7 +653,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/sanguinevest
 	name = "sanguine vest"
-	output = /obj/item/clothing/shirt/undershirt/courtphysician/male
+	output = /obj/item/clothing/shirt/undershirt/courtphysician
 	requirements = list(
 		/obj/item/natural/silk = 3
 	)
@@ -669,7 +669,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/sanguineskirt
 	name = "sanguine skirt"
-	output = /obj/item/clothing/pants/skirt/courtphysician/female
+	output = /obj/item/clothing/pants/skirt/courtphysician
 	requirements = list(
 		/obj/item/natural/silk = 3
 	)
@@ -677,7 +677,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/sanguinehat
 	name = "sanguine hat"
-	output = /obj/item/clothing/head/courtphysician/male
+	output = /obj/item/clothing/head/courtphysician
 	requirements = list(
 		/obj/item/natural/silk = 2
 	)

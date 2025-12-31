@@ -135,7 +135,7 @@
 	icon_state = "butlershirt"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_maids.dmi'
 
-/obj/item/clothing/shirt/undershirt/courtphysician/male
+/obj/item/clothing/shirt/undershirt/courtphysician
 	name = "sanguine vest"
 	desc = "A silk vest, perhaps it will make it another dae without being bloodied."
 	icon_state = "docvest"

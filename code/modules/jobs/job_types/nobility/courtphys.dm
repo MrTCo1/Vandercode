@@ -55,18 +55,18 @@
 
 /datum/outfit/courtphys/male
 	name = "Male Court Physician"
-	shoes = /obj/item/clothing/shoes/courtphysician/male
-	shirt = /obj/item/clothing/shirt/undershirt/courtphysician/male
-	pants = /obj/item/clothing/pants/trou/courtphysician/male
+	shoes = /obj/item/clothing/shoes/courtphysician
+	shirt = /obj/item/clothing/shirt/undershirt/courtphysician
+	pants = /obj/item/clothing/pants/trou/courtphysician
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	gloves = /obj/item/clothing/gloves/leather/courtphysician/male
-	head = /obj/item/clothing/head/courtphysician/male
+	gloves = /obj/item/clothing/gloves/leather/courtphysician
+	head = /obj/item/clothing/head/courtphysician
 	mask = /obj/item/clothing/face/courtphysician
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/keyring/physician
 	beltr = /obj/item/weapon/sword/rapier/caneblade/courtphysician
-	armor = /obj/item/clothing/armor/leather/jacket/courtphysician/male
+	armor = /obj/item/clothing/armor/leather/jacket/courtphysician
 	ring = /obj/item/clothing/ring/feldsher_ring
 	scabbards = list(/obj/item/weapon/scabbard/cane/courtphysician)
 
