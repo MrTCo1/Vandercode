@@ -677,7 +677,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/sanguinehat
 	name = "sanguine hat"
-	output = /obj/item/clothing/head/courtphysician
+	output = /obj/item/clothing/head/courtphysician/male
 	requirements = list(
 		/obj/item/natural/silk = 2
 	)
