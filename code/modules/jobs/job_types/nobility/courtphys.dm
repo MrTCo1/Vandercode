@@ -61,7 +61,7 @@
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
 	gloves = /obj/item/clothing/gloves/leather/courtphysician
-	head = /obj/item/clothing/head/courtphysician
+	head = /obj/item/clothing/head/courtphysician/male
 	mask = /obj/item/clothing/face/courtphysician
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/keyring/physician
