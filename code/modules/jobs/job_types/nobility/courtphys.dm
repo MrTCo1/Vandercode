@@ -11,7 +11,8 @@
 	spawn_positions = 1
 	allowed_races = RACES_PLAYER_NONHERETICAL
 	blacklisted_species = list(SPEC_ID_TRITON, SPEC_ID_HARPY)
-	outfit = /datum/outfit/courtphys
+	outfit = /datum/outfit/courtphys/male
+	outfit_female /datum/outfit/courtphys/female
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 	spells = list(/datum/action/cooldown/spell/diagnose)
