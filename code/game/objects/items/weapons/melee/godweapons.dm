@@ -427,3 +427,32 @@
 	hitsound = null
 	noaa = TRUE
 	reach = 3
+
+//┌─────────────── TENNITE PANTHEON WEAPONS BELOW ───────────────┐
+
+/obj/item/weapon/sword/long/grandmaster
+	name = "divine longsword"
+	desc = "A mighty blade, these are made by the most skilled malumites and passed down through generations of Ravoxian Grandmasters, said to be blessed by the Swordfather himself.<br><i>And unto the unholy he spoke, 'Be at rest, you have attoned for your sins in death, in your next life you shall find peace.'</i>"
+	icon = 'icons/roguetown/weapons/64/godweapons.dmi'
+	icon_state = "martyrsword"
+/obj/item/weapon/sword/long/grandmaster/Initialize()
+	. = ..()
+	AddComponent(/datum/component/martyrweapon)
+
+/obj/item/weapon/greataxe/steel/grandmaster
+	name = "divine greataxe"
+	desc = "A mighty greataxe, these are made by the most skilled malumites and passed down through generations of Ravoxian Grandmasters, said to be blessed by the Swordfather himself.<br><i>And unto the unholy he spoke, 'Be at rest, you have attoned for your sins in death, in your next life you shall find peace.'</i>"
+	icon = 'icons/roguetown/weapons/64/godweapons.dmi'
+	icon_state = "martyraxe"
+
+/obj/item/weapon/polearm/spear/grandmaster
+	name = "divine trident"
+	desc = "A mighty trident, these are made by the most skilled malumites and passed down through generations of Ravoxian Grandmasters, said to be blessed by the Swordfather himself.<br><i>And unto the unholy he spoke, 'Be at rest, you have attoned for your sins in death, in your next life you shall find peace.'</i>"
+	icon = 'icons/roguetown/weapons/64/godweapons.dmi'
+	icon_state = "martyrtrident"
+
+/obj/item/weapon/mace/goden/steel/grandmaster
+	name = "divine grandmace"
+	desc = "A mighty bludgeon, these are made by the most skilled malumites and passed down through generations of Ravoxian Grandmasters, said to be blessed by the Swordfather himself.<br><i>And unto the unholy he spoke, 'Be at rest, you have attoned for your sins in death, in your next life you shall find peace.'</i>"
+	icon = 'icons/roguetown/weapons/64/godweapons.dmi'
+	icon_state = "martyrmace"

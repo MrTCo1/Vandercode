@@ -64,17 +64,16 @@
 
 /datum/outfit/gmtemplar
 	name = "Grandmaster Templar"
-	head = /obj/item/clothing/head/helmet/visored/silver
+	neck = /obj/item/clothing/neck/chaincoif
 	armor = /obj/item/clothing/armor/plate/full/silver
 	shirt = /obj/item/clothing/armor/chainmail
 	pants = /obj/item/clothing/pants/platelegs/silver
-	shoes = /obj/item/clothing/shoes/boots
+	shoes = /obj/item/clothing/shoes/boots/armor/silver
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/priest = 1,  /obj/item/storage/belt/pouch/coins/rich = 1)
 	belt = /obj/item/storage/belt/leather/black
-	beltl = /obj/item/weapon/sword/long/church/master
 	ring = /obj/item/clothing/ring/silver/rontz
-	gloves = /obj/item/clothing/gloves/plate
+	gloves = /obj/item/clothing/gloves/plate/silver
 
 
 /datum/outfit/gmtemplar/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
@@ -82,14 +81,29 @@
 	if(visuals_only)
 		return
 
+	var/static/list/selectableweapon = list(
+		"Longsword" = /obj/item/weapon/sword/long/grandmaster,
+		"Spear" = /obj/item/weapon/polearm/spear/grandmaster,
+		"Axe" = /obj/item/weapon/greataxe/steel/grandmaster,
+		"Mace" = /obj/item/weapon/mace/goden/steel/grandmaster,
+	)
+
+	H.select_equippable(H, selectableweapon, message = "Choose thy blade", title = "GRANDMASTER")
+
+	var/static/list/selectablehelm = list(
+		"Armet" = /obj/item/clothing/head/helmet/visored/silver/armet,
+		"Bascinet" = /obj/item/clothing/cloak/templar/undivided,
+	)
+
+	H.select_equippable(H, selectablehelm, message = "Choose thy helm", title = "GRANDMASTER")
+
 	var/static/list/selectablecloak = list(
 		"Cloak" = /obj/item/clothing/cloak/pantheon,
 		"Tabard" = /obj/item/clothing/cloak/templar/undivided,
 		"Jupon" = /obj/item/clothing/cloak/silktabard
 	)
 
-	var/choice = H.select_equippable(H, selectablecloak, message = "Choose an overcoat", title = "GRANDMASTER")
+	H.select_equippable(H, selectablecloak, message = "Choose thy overcoat", title = "GRANDMASTER")
 
-	if(!choice)
-		return
+
 
