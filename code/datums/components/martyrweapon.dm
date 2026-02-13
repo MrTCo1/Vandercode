@@ -377,7 +377,6 @@
 				current_holder.adjust_skillrank(/datum/skill/combat/swords, 1, FALSE)
 				current_holder.adjust_skillrank(/datum/skill/combat/axesmaces, 1, FALSE)
 				current_holder.adjust_skillrank(/datum/skill/combat/polearms, 1, FALSE)
-				current_holder.adjust_skillrank(/datum/skill/combat/unarmed, 1, FALSE)
 
 			else
 				end_activation = world.time + safe_duration
