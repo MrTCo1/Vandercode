@@ -6,7 +6,7 @@
 // Stats, traits, and skills are maybe possibly balanced to us? Its still bad.
 
 /datum/component/martyrweapon
-	var/list/allowed_areas = list(/area/rogue/indoors/town/church, /area/rogue/indoors/town/church/chapel)
+	var/list/allowed_areas = list(/area/indoors/town/church/chapel)
 	var/list/allowed_patrons = list()
 	var/cooldown = 30 MINUTES
 	var/last_activation = 0
@@ -26,6 +26,7 @@
 	var/is_dying = FALSE
 	var/death_time
 	var/last_time
+	var/second_wind
 
 	var/list/active_intents = list()
 	var/list/active_intents_wielded = list()
@@ -64,6 +65,8 @@
 	if(is_active)
 		if(world.time > end_activation)
 			handle_end()
+		if(world.time > second_wind)
+			adjust_stats(STATE_MARTYRULT)
 		else
 			var/timer = timehint()
 			if(timer == 30 && current_state == STATE_MARTYRULT)
@@ -106,43 +109,20 @@
 /datum/component/martyrweapon/proc/deathprocess()
 	if(current_holder)
 		current_holder.Stun(16000, 1, 1)	//Even if you glitch out to survive you're still permastunned, you are not meant to come back from this
-		current_holder.Knockdown(16000, 1, 1)
-		var/count = 3
-		var/list/targets = list(current_holder)
 		var/mob/living/carbon/human/H = current_holder
 		if(H.cmode)	//Turn off the music
 			H.toggle_cmode()
-		addtimer(CALLBACK(src, PROC_REF(killhost)), 45 SECONDS)
-		for(var/i = 1, i<=count,i++)
-			if(do_after_mob(H, targets, 70, uninterruptible = 1))
-				switch(i)
-					if(1)
-						current_holder.visible_message(span_warning("[current_holder] twitches and writhes from godly energies!"), span_warning("You can feel the weapon tap into your very being, pulling apart your body!"))
-						current_holder.playsound_local(current_holder, 'sound/health/fastbeat.ogg', 100)
-					if(2)
-						current_holder.visible_message(span_warning("[current_holder]'s body contorts, bones splitting apart, tearing through flesh and fabric!"), span_warning("Your bones break and crack, splintering from your flesh as the power of [H.patron.name] overwhelms you."))
-						H.emote_scream()
-						playsound(current_holder, pick('sound/combat/fracture/headcrush (1).ogg', 'sound/combat/fracture/fracturewet (1).ogg'), 100)
-					if(3)
-						current_holder.visible_message(span_warning("[current_holder] ceases to move, and lets out one final gasp. It sounds content, despite the state of their body."), span_warning("Your body is nearly gone. Yet a sense of bliss and fulfillment washes over you. [H.patron.name] blessed you with this opportunity. Your Oath is fulfilled."))
-						current_holder.playsound_local(current_holder, 'sound/magic/ahh1.ogg', 100)
+		addtimer(CALLBACK(src, PROC_REF(killhost)), 30 SECONDS)
+		current_holder.visible_message(span_warning("[current_holder] falls to their knees, planting their weapon into the ground as holy energies pulse from their body!"), span_warning("My oath is fulfilled. I hope I made it count. I have thirty seconds to make peace with the Gods and my Kin."))
+		current_holder.playsound_local(current_holder, 'sound/health/fastbeat.ogg', 100)
 
 /datum/component/martyrweapon/proc/killhost()
 	if(current_holder)
 		var/mob/living/carbon/human/H = current_holder
+		current_holder.playsound_local(current_holder, 'sound/magic/ahh1.ogg', 100)
 		current_holder.visible_message(span_info("[current_holder] fades away."), span_info("Your life led up to this moment. In the face of the decay of the world, you endured. Now you rest. You feel your soul shed from its mortal coils, and the embrace of [H.patron.name]"))
 		H.dust(drop_items = TRUE)
 		is_dying = FALSE
-
-/datum/component/martyrweapon/proc/trigger_pulse(range = 2, isfinal = FALSE)
-	for(var/mob/M in oviewers(range, current_holder))
-		mob_ignite(M)
-		if(isfinal)
-			if(ishuman(M))
-				var/mob/living/carbon/human/H
-				var/type = H.patron?.type
-				if(istype(type, /datum/patron/inhumen))
-					H.electrocution_animation(20)
 
 //This gives a countdown to the user, it's pretty hacky
 /datum/component/martyrweapon/proc/timehint()
@@ -185,7 +165,7 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		M.adjust_fire_stacks(5)
-		M.ignite_mob()
+		M.IgniteMob()
 
 /datum/component/martyrweapon/proc/on_equip(datum/source, mob/user, slot)
 	if(!allow_all)
@@ -195,8 +175,8 @@
 				to_chat(H, span_warn("It burns and sizzles! It does not tolerate my pallid flesh!"))
 				H.dropItemToGround(parent)
 				return
-			var/datum/job/J = SSjob.GetJob(H.mind?.assigned_role)
-			if(J.title != "Grandmaster Templar" && J.title != "Bishop")
+			var/datum/job/J = SSjob.GetJob(H.job)
+			if(J.title != "Grandmaster Templar")
 				to_chat(H, span_warn("It slips from my grasp. I can't get a hold."))
 				H.dropItemToGround(parent)
 				return
@@ -204,9 +184,7 @@
 				RegisterSignal(user, COMSIG_CLICK_ALT, PROC_REF(altclick), override = TRUE)
 				current_holder = user
 			if(J.title == "Grandmaster Templar")
-				to_chat(user, span_warning("The blade binds to you."))
-			if(J.title == "Bishop")
-				to_chat(user, span_warning("You feel the shocking sensation as the sword attempts to bind to you. You know it will kill you. You can still drop it, and leave it for the Oathed."))
+				to_chat(user, span_warning("The weapon binds to you."))
 	else
 		RegisterSignal(user, COMSIG_CLICK_ALT, PROC_REF(altclick), override = TRUE)
 		current_holder = user
@@ -295,7 +273,13 @@
 				current_holder.STAINT += stat_bonus_martyr
 				current_holder.STAPER += stat_bonus_martyr
 				current_holder.STALUC += stat_bonus_martyr
-				H.energy_add(9999)
+				H.adjust_energy(9999)
+			if(STATE_MARTYRULT) // This ONLY triggers a minute and a half into the ult. They'll have this for thirty seconds and then DIE. Go off King.
+				ADD_TRAIT(current_holder, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+				current_holder.STASTR = 20
+				current_holder.STAPER = 20
+				current_holder.STACON = 20
+				current_holder.STAEND = 20
 
 //This is called regardless of the activated state (safe or not)
 /datum/component/martyrweapon/proc/deactivate()
@@ -333,8 +317,8 @@
 			I.toggle_state = "[initial(I.icon_state)]_ulton"
 		else
 			I.toggle_state = "[initial(I.icon_state)]_on"
-		I.item_state = "[I.toggle_state]1"]"
-		I.icon_state = "[I.toggle_state]1"]"
+		I.item_state = "[I.toggle_state]1"
+		I.icon_state = "[I.toggle_state]1"
 	else
 		I.icon_state = initial(I.icon_state)
 		I.item_state = initial(I.item_state)
@@ -345,12 +329,7 @@
 //This is called once all the checks are passed and the options are made by the player to commit.
 /datum/component/martyrweapon/proc/activate(mob/user, status_flag)
 	current_holder.visible_message("[span_notice("[current_holder] begins invoking their Oath!")]", span_notice("You begin to invoke your oath."))
-	switch(status_flag)
-		if(STATE_MARTYR)
-			user.playsound_local(user, 'sound/misc/martyrcharge.ogg', 100, FALSE)
-		if(STATE_MARTYRULT)
-			user.playsound_local(user, 'sound/misc/martyrultcharge.ogg', 100, FALSE)
-	if(do_after(user, 50))
+	if(do_after(user, 5 SECONDS, parent))
 		flash_lightning(user)
 		var/obj/item/I = parent
 		I.damtype = BURN	//Changes weapon damage type to fire
@@ -383,20 +362,22 @@
 
 			if(STATE_MARTYRULT)
 				end_activation = world.time + ultimate_duration
+				second_wind = world.time + ultimate_duration - 30 SECONDS
 
 				I.max_blade_int = 9999
 				I.sharpness = I.max_blade_int
 
 				current_holder.adjust_skillrank(/datum/skill/misc/athletics, 6, FALSE)
 
+				adjust_stats(STATE_MARTYR)
+
 				current_holder.energy = current_holder.max_energy
 				current_holder.stamina = 0
 
-				current_holder.adjust_skillrank(/datum/skill/combat/swords, 5, FALSE)
-				current_holder.adjust_skillrank(/datum/skill/combat/axes, 5, FALSE)
-				current_holder.adjust_skillrank(/datum/skill/combat/polearms, 5, FALSE)
-				current_holder.adjust_skillrank(/datum/skill/combat/maces, 5, FALSE)
-				current_holder.adjust_skillrank(/datum/skill/combat/unarmed, 5, FALSE)
+				current_holder.adjust_skillrank(/datum/skill/combat/swords, 1, FALSE)
+				current_holder.adjust_skillrank(/datum/skill/combat/axesmaces, 1, FALSE)
+				current_holder.adjust_skillrank(/datum/skill/combat/polearms, 1, FALSE)
+				current_holder.adjust_skillrank(/datum/skill/combat/unarmed, 1, FALSE)
 
 			else
 				end_activation = world.time + safe_duration
@@ -406,10 +387,10 @@
 			switch(status_flag)
 				if(STATE_MARTYR)
 					SEND_SOUND(H, sound(null))
-					//H.cmode_music = 'sound/music/combat_martyr.ogg' Maybe if pizza doesnt hate me, but this is copyrighted
+					H.cmode_music = 'sound/music/cmode/church/CombatRavox.ogg' // Gets their normal music until pizza finishes his Great Work
 				if(STATE_MARTYRULT)
 					SEND_SOUND(H, sound(null))
-					//H.cmode_music = 'sound/music/combat_martyrult.ogg' Maybe if pizza doesnt hate me, but this is copyrighted
+					H.cmode_music = 'sound/music/cmode/church/CombatMartyrUlt.ogg'
 			adjust_traits(remove = FALSE)
 			if(!H.cmode)	//Turns on combat mode (it syncs up the audio neatly)
 				H.toggle_cmode()
