@@ -134,7 +134,7 @@
 	if(result == 0)
 		var/resultadv = (end_activation - world.time) / 10	//Seconds
 		if(resultadv < 30 && resultadv > 27 && last_time != 30)
-			to_chat(current_holder,span_notice("30 SECONDS!"))
+			to_chat(current_holder,span_notice("30 SECONDS! MY POWER SURGES!!"))
 			last_time = 30
 			return 30
 		else
