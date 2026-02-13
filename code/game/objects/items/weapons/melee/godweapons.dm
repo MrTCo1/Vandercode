@@ -513,8 +513,8 @@
 
 /obj/item/weapon/polearm/spear/grandmaster/Initialize()
 	. = ..()
-	var/list/active_intents = list(/datum/intent/spear/cut/martyr, /datum/intent/spear/bash/martyr)
-	var/list/active_intents_wielded = list(/datum/intent/spear/cut/martyr, /datum/intent/spear/thrust/martyr, /datum/intent/spear/bash/martyr)
+	var/list/active_intents = list(/datum/intent/polearm/cut/martyr, /datum/intent/polearm/bash/martyr)
+	var/list/active_intents_wielded = list(/datum/intent/polearm/cut/martyr, /datum/intent/polearm/thrust/martyr, /datum/intent/polearm/bash/martyr)
 	var/safe_damage = 15
 	var/safe_damage_wielded = 35
 	AddComponent(/datum/component/martyrweapon, active_intents, active_intents_wielded, safe_damage, safe_damage_wielded)
