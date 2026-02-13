@@ -290,7 +290,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	///do we block the offhand while wielding
 	var/wield_block = TRUE
 
-	var/toggle_state
+	var/toggle_state // Needed for grandmaster/martyr weapons, might be shitcode, might be usable for the future, *shrug, it works
 
 /obj/item/proc/set_quality(quality)
 	recipe_quality = clamp(quality, 0, 4)
@@ -379,9 +379,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			return
 		if(gripsprite)
 			if(toggle_state) // See above comment
-				icon_state = initial(icon_state)
-			else
 				icon_state ="[toggle_state]"
+			else
+				icon_state = initial(icon_state)
 			var/datum/component/decal/blood/B = GetComponent(/datum/component/decal/blood)
 			if(B)
 				B.remove()
