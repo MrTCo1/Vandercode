@@ -10,6 +10,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/church/CombatRavox.ogg'
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_patrons = list(/datum/patron/divine/ravox)
@@ -28,13 +29,15 @@
 
 	jobstats = list(
 		STATKEY_STR = 2,
-		STATKEY_CON = 2,
+		STATKEY_CON = 4,
 		STATKEY_END = 2,
 		STATKEY_SPD = -1
 	)
 
 	skills = list(
-		/datum/skill/combat/swords = 4,
+		/datum/skill/combat/swords = 4, // Its easier just to give them all three, it'd be a pain to try and manage this in the ult component
+		/datum/skill/combat/polearms = 4,
+		/datum/skill/combat/axesmaces = 4,
 		/datum/skill/combat/wrestling = 4,
 		/datum/skill/combat/unarmed = 3,
 		/datum/skill/misc/climbing = 1,
@@ -62,6 +65,30 @@
 		devotion.make_templar()
 		devotion.grant_to(spawned)
 
+	var/static/list/selectableweapon = list(
+		"Longsword" = /obj/item/weapon/sword/long/grandmaster,
+		"Spear" = /obj/item/weapon/polearm/spear/grandmaster,
+		"Axe" = /obj/item/weapon/greataxe/steel/grandmaster,
+		"Mace" = /obj/item/weapon/mace/goden/steel/grandmaster,
+	)
+
+	spawned.select_equippable(player_client, selectableweapon, message = "Choose thy blade", title = "GRANDMASTER")
+
+	var/static/list/selectablehelm = list(
+		"Armet" = /obj/item/clothing/head/helmet/visored/silver/armet,
+		"Bascinet" = /obj/item/clothing/head/helmet/visored/silver,
+	)
+
+	spawned.select_equippable(player_client, selectablehelm, message = "Choose thy helm", title = "GRANDMASTER")
+
+	var/static/list/selectablecloak = list(
+		"Cloak" = /obj/item/clothing/cloak/pantheon,
+		"Tabard" = /obj/item/clothing/cloak/templar/undivided,
+		"Jupon" = /obj/item/clothing/cloak/silktabard
+	)
+
+	spawned.select_equippable(player_client, selectablecloak, message = "Choose thy overcoat", title = "GRANDMASTER")
+
 /datum/outfit/gmtemplar
 	name = "Grandmaster Templar"
 	neck = /obj/item/clothing/neck/chaincoif
@@ -74,36 +101,10 @@
 	belt = /obj/item/storage/belt/leather/black
 	ring = /obj/item/clothing/ring/silver/rontz
 	gloves = /obj/item/clothing/gloves/plate/silver
+	wrists = /obj/item/clothing/neck/psycross/silver/ravox
 
 
-/datum/outfit/gmtemplar/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	. = ..()
-	if(visuals_only)
-		return
 
-	var/static/list/selectableweapon = list(
-		"Longsword" = /obj/item/weapon/sword/long/grandmaster,
-		"Spear" = /obj/item/weapon/polearm/spear/grandmaster,
-		"Axe" = /obj/item/weapon/greataxe/steel/grandmaster,
-		"Mace" = /obj/item/weapon/mace/goden/steel/grandmaster,
-	)
-
-	H.select_equippable(H, selectableweapon, message = "Choose thy blade", title = "GRANDMASTER")
-
-	var/static/list/selectablehelm = list(
-		"Armet" = /obj/item/clothing/head/helmet/visored/silver/armet,
-		"Bascinet" = /obj/item/clothing/cloak/templar/undivided,
-	)
-
-	H.select_equippable(H, selectablehelm, message = "Choose thy helm", title = "GRANDMASTER")
-
-	var/static/list/selectablecloak = list(
-		"Cloak" = /obj/item/clothing/cloak/pantheon,
-		"Tabard" = /obj/item/clothing/cloak/templar/undivided,
-		"Jupon" = /obj/item/clothing/cloak/silktabard
-	)
-
-	H.select_equippable(H, selectablecloak, message = "Choose thy overcoat", title = "GRANDMASTER")
 
 
 
