@@ -402,3 +402,7 @@
 	else
 		is_activating = FALSE
 		SEND_SOUND(current_holder, sound(null))
+
+#undef STATE_SAFE
+#undef STATE_MARTYR
+#undef STATE_MARTYRULT
