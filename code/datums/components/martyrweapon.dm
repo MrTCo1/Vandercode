@@ -8,7 +8,7 @@
 /datum/component/martyrweapon
 	var/list/allowed_areas = list(/area/indoors/town/church/chapel)
 	var/list/allowed_patrons = list()
-	var/cooldown = 30 MINUTES
+	var/activatecooldown = 30 MINUTES
 	var/last_activation = 0
 	var/next_activation = 0
 	var/end_activation = 0
@@ -35,6 +35,8 @@
 
 	var/active_safe_damage
 	var/active_safe_damage_wielded
+
+	COOLDOWN_DECLARE(weaponactivate)
 
 /datum/component/martyrweapon/Initialize(list/intents, list/intents_w, active_damage, active_damage_wielded)
 	if(!isitem(parent))
@@ -190,7 +192,7 @@
 	if(user == current_holder && !is_active && !is_activating)
 		var/holding = user.get_active_held_item()
 		if(holding == parent)
-			if(world.time > next_activation)
+			if(COOLDOWN_FINISHED(src, weaponactivate))
 				if(!allow_all)
 					var/A = get_area(user)
 					if(A)
@@ -233,11 +235,9 @@
 /datum/component/martyrweapon/proc/on_examine(datum/source, mob/user, list/examine_list)
 	if(current_holder && current_holder == user)
 		examine_list += span_notice("It looks to be bound to you. Alt + right click to activate it.")
-	if(!is_active && world.time < next_activation)
-		var/time = next_activation - world.time
-		time = time / 10	//Deciseconds to seconds
-		examine_list += span_notice("The time remaining until it is prepared: [round(abs(time) / 60)] minutes.")
-	else if(!is_active && world.time > next_activation)
+	if(!COOLDOWN_FINISHED(src, weaponactivate))
+		examine_list += span_notice("The time remaining until it is prepared: [COOLDOWN_TIMELEFT(src, weaponactivate) / 600] minutes")
+	else
 		examine_list += span_notice("It looks ready to be used again.")
 	if(is_active)
 		examine_list += span_warningbig("It is lit afire by godly energies!")
@@ -294,8 +294,7 @@
 	I.slot_flags = initial(I.slot_flags)	//Returns its ability to be sheathed
 	last_time = null	//Refreshes the countdown tracker
 
-	last_activation = world.time
-	next_activation = last_activation + cooldown
+	COOLDOWN_START(src, weaponactivate, activatecooldown)
 	adjust_traits(remove = TRUE)
 	adjust_icons(tonormal = TRUE)
 
