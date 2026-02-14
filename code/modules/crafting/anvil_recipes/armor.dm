@@ -1084,7 +1084,7 @@
 	name = "Silver Boots"
 	recipe_name = "a pair of Silver Boots"
 	additional_items = list(/obj/item/ingot/silver)
-	created_item = /obj/item/clothing/gloves/plate/silver
+	created_item = /obj/item/clothing/shoes/boots/armor/silver
 	craftdiff = 4
 
 //////////////////////////////////////////////////////////////////////////////////////////////
