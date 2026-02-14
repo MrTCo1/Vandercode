@@ -207,6 +207,12 @@
 	icon = 'icons/roguetown/weapons/32/swords.dmi'
 	icon_state = "doccaneblade"
 
+/obj/item/weapon/sword/rapier/caneblade/hand
+	name = "cane blade"
+	desc = "A steel blade with a silver handle, intended to be concealed inside of a cane. This one bears a ruby on its pommel."
+	icon = 'icons/roguetown/weapons/special/hand32.dmi'
+	icon_state = "staffblade"
+
 /*-------\
 | Sabres |	Onehanded, slightly weaker thrust, better for parries. Think rapier but cutting focus.
 \-------*/
