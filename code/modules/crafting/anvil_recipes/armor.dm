@@ -1080,7 +1080,7 @@
 	created_item = /obj/item/clothing/gloves/plate/silver
 	craftdiff = 4
 
-/datum/anvil_recipe/armor/silver/gauntlet
+/datum/anvil_recipe/armor/silver/boots
 	name = "Silver Boots"
 	recipe_name = "a pair of Silver Boots"
 	additional_items = list(/obj/item/ingot/silver)
