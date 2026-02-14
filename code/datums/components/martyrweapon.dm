@@ -97,10 +97,7 @@
 			else
 				to_chat(current_holder, span_notice("The weapon begins to fizzle out, but the energy has nowhere to go!"))
 				C.freak_out()
-				if(prob(35))
-					deathprocess()
-				else
-					to_chat(current_holder, span_notice("You manage to endure it, this time."))
+				deathprocess()
 
 		if(STATE_MARTYR, STATE_MARTYRULT)
 			C.freak_out()
