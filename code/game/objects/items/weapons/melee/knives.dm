@@ -287,7 +287,7 @@
 /obj/item/weapon/knife/dagger/steel/hand
 	name = "Fervor"
 	desc = "A greatly forged length of steel. Strike with Fervor into the heart of those who dont even know where you lurk."
-	icon = 'icons/roguetown/weapons/special/hand32.dmi'
+	icon = 'icons/roguetown/weapons/32/hand32.dmi'
 	icon_state = "sdaggerhand"
 	sellprice = 200
 
@@ -295,7 +295,7 @@
 	name = "Apathy"
 	desc = "A greatly forged length of steel made to be able to parry. Defend with Apathy for any strike that approaches you, for you know they will not make contact"
 	wdefense = GOOD_PARRY
-	icon_state = "sdaggerhand"
+	icon_state = "spdaggerhand"
 
 //................ Fanged dagger ............... //
 /obj/item/weapon/knife/dagger/steel/dirk
