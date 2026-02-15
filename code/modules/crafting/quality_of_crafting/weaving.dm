@@ -426,7 +426,7 @@
 	craftdiff = 4
 	category = "Armor"
 
-/datum/repeatable_crafting_recipe/sewing/weaving/paddedgambeson
+/datum/repeatable_crafting_recipe/sewing/weaving/handgamb
 	name = "noble undercoat"
 	output = /obj/item/clothing/armor/gambeson/hand
 	requirements = list(/obj/item/natural/cloth = 6,
