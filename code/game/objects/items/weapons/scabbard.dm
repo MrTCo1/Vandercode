@@ -84,6 +84,14 @@
 	icon_state = "rsheath"
 	sellprice = 100
 
+/obj/item/weapon/scabbard/knife/hand
+	name = "hand's bracers"
+	desc = "Discretion had always been the better part of valour, and nobody understands that better than the one holding an ace up their sleeve."
+	slot_flags = ITEM_SLOT_WRISTS
+	sellprice = 50
+	icon = 'icons/roguetown/clothing/special/hand.dmi'
+	icon_state = "bracersheath"
+
 /obj/item/weapon/scabbard/sword
 	name = "scabbard"
 	desc = "A scabbard designed to hold a sword. The natural conclusion for those wishing to carry longblades."
@@ -148,7 +156,7 @@
 /obj/item/weapon/scabbard/cane/hand
 	name = "fancy cane"
 	desc = "A decorated silver cane bearing a rontz at the top."
-	icon = 'icons/roguetown/weapons/special/hand32.dmi'
+	icon = 'icons/roguetown/weapons/32/hand32.dmi'
 	icon_state = "staffsheath"
 
 /obj/item/weapon/scabbard/cane/apply_components()
