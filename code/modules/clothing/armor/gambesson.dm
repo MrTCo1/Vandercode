@@ -99,7 +99,7 @@
 
 /obj/item/clothing/armor/gambeson/hand/spy
 	detail_color = CLOTHING_ROYAL_PURPLE
-	misc_flag = CRAFTING_TEST_EXCLUDE
+	misc_flags = CRAFTING_TEST_EXCLUDE
 
 //................ Padded Dress ............... //
 /obj/item/clothing/armor/gambeson/heavy/dress
