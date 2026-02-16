@@ -163,6 +163,7 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob, slot_flags|ITEM_SLOT_HANDS)
 	AddComponent(/datum/component/storage/concrete/scabbard/sword)
+	AddElement(/datum/element/walking_stick)
 
 /obj/item/weapon/scabbard/cane/getonmobprop(tag)
 	. = ..()
