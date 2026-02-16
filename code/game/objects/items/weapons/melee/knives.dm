@@ -299,7 +299,6 @@
 /obj/item/weapon/knife/dagger/steel/hand
 	name = "Fervor"
 	desc = "A greatly forged length of steel. Strike with Fervor into the heart of those who dont even know where you lurk."
-	icon = 'icons/roguetown/weapons/32/hand32.dmi'
 	icon_state = "sdaggerhand"
 	sellprice = 200
 

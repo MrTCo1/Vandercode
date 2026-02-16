@@ -156,7 +156,6 @@
 /obj/item/weapon/scabbard/cane/hand
 	name = "fancy cane"
 	desc = "A decorated silver cane bearing a rontz at the top."
-	icon = 'icons/roguetown/weapons/32/hand32.dmi'
 	icon_state = "staffsheath"
 
 /obj/item/weapon/scabbard/cane/apply_components()

@@ -210,7 +210,6 @@
 /obj/item/weapon/sword/rapier/caneblade/hand
 	name = "cane blade"
 	desc = "A steel blade with a silver handle, intended to be concealed inside of a cane. This one bears a rontz on its pommel."
-	icon = 'icons/roguetown/weapons/32/hand32.dmi'
 	icon_state = "staffblade"
 
 /*-------\
