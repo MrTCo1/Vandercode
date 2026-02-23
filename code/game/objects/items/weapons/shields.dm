@@ -314,6 +314,7 @@
 	sellprice = 60
 	max_integrity = INTEGRITY_STRONG
 	melting_material = /datum/material/steel
+	wdefense = 7
 
 /obj/item/weapon/shield/heater
 	name = "heater shield"
